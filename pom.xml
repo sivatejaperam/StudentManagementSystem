@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sivateja</groupId>
-	<artifactId>springboot-jpa-demo</artifactId>
+	<artifactId>student-management-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-jpa-demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>student-management-system</name>
+	<description>Student Management System</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>

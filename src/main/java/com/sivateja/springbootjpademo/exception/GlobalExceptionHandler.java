@@ -1,5 +1,6 @@
 package com.sivateja.springbootjpademo.exception;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -12,11 +13,13 @@ import java.io.StringWriter;
 import java.util.HashMap;
 
 @ControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity handleResourceNotFoundException(ResourceNotFoundException ex){
+        log.error("Resource not found ", ex);
         ErrorDetails errorDetails = new ErrorDetails();
         errorDetails.setErrorCode(HttpStatus.NOT_FOUND.toString());
         errorDetails.setErrorMessage(ex.getMessage());

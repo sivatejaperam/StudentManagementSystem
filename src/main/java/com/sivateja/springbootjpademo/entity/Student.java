@@ -1,15 +1,20 @@
 package com.sivateja.springbootjpademo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Student {
 
     @Id
@@ -18,14 +23,15 @@ public class Student {
     @NotBlank(message = "Student Name is mandatory")
     @Column(unique = true)
     private String name;
-    private int score;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate = new Date();
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date UpdatedDate = new Date();
+    @JsonBackReference
+    @ManyToOne
+    private Branch branch;
+    @OneToMany(mappedBy = "student")
+    private List<Subject> subjects= new ArrayList<>();
 
-    public Student(String name, int score){
-        this.name = name;
-        this.score = score;
+    public void addSubjects(Subject subject){
+        this.subjects.add(subject);
+        subject.setStudent(this);
     }
+
 }

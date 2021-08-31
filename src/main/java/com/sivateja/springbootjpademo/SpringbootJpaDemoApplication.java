@@ -1,12 +1,16 @@
 package com.sivateja.springbootjpademo;
 
+import com.sivateja.springbootjpademo.entity.Branch;
 import com.sivateja.springbootjpademo.entity.Student;
+import com.sivateja.springbootjpademo.repo.BranchRepo;
 import com.sivateja.springbootjpademo.repo.StudentRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -21,12 +25,9 @@ public class SpringbootJpaDemoApplication {
 	}
 
 	/*@Bean
-	CommandLineRunner commandLineRunner(StudentRepo repo){
+	CommandLineRunner commandLineRunner(BranchRepo repo){
 		return args -> {
-			List<Student> students = IntStream.rangeClosed(1, 100)
-					.mapToObj(i -> new Student("Student" + i, new Random().nextInt(100)))
-					.collect(Collectors.toList());
-			repo.saveAll(students);
+			repo.save(new Branch(null, "E.C.E", LocalDate.now(), LocalDate.of(2021,9,1), null));
 		};
 	}*/
 }

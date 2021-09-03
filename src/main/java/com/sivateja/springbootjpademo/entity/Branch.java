@@ -1,8 +1,6 @@
 package com.sivateja.springbootjpademo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +8,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -27,7 +24,7 @@ public class Branch {
     private LocalDate startDate;
     @Column(columnDefinition = "DATE")
     private LocalDate endDate;
-    @JsonManagedReference
+    @JsonBackReference
     @OneToMany(mappedBy = "branch")
     private List<Student> students= new ArrayList<>();
 

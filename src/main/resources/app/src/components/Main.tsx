@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
-import { Table } from 'react-bootstrap';
 import Students from './Students';
+import Profile from './Profile';
 
 
 class Main extends React.Component<any, any>{
@@ -12,6 +12,7 @@ class Main extends React.Component<any, any>{
         return (
             <div>
                 <Students/>
+                <Profile/>
             </div>
 
         )

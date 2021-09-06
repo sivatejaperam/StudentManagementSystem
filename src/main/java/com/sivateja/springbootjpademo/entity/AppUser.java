@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -15,15 +15,17 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@SequenceGenerator(name="USER_SEQ", sequenceName = "user_sequence", allocationSize = 1)
 public class AppUser {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
     private Long id;
     private String name;
     private String email;
+    private String imageLocation;
     private String password;
-    private Date createdDate;
+    private LocalDateTime createdDate = LocalDateTime.now();
 
 
 }

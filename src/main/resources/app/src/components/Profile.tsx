@@ -1,6 +1,6 @@
+import { Button, Table } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
-import { Button, Table } from 'react-bootstrap';
 
 class Profile extends React.Component<any, any>{
 
@@ -59,8 +59,8 @@ class Profile extends React.Component<any, any>{
         return (
             <div>
                 <div>
-                <h1>Student List</h1>
-                <Table striped bordered hover>
+                <h1>Users List</h1>
+                <Table>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -75,7 +75,7 @@ class Profile extends React.Component<any, any>{
                 </Table>
             </div>
                 <input type="file" onChange={this.handleChange} />
-                <Button as="input" type="button" value="upload" onClick={this.uploadFile} />
+                <Button value="upload"  onClick={this.uploadFile} />
             </div>
         )
     }

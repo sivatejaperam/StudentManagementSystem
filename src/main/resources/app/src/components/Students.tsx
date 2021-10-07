@@ -1,6 +1,7 @@
+import { Table } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
-import { Table } from 'react-bootstrap';
+
 
 class Students extends React.Component<any, any>{
 
@@ -13,7 +14,9 @@ class Students extends React.Component<any, any>{
 
     componentDidMount() {
         axios.get('/api/student/10/0')
-            .then((response) => {
+            .then((response:any) => {
+                console.log("resonse ", response);
+                
                 this.setState({
                     students: response.data.content
                 })
@@ -21,20 +24,20 @@ class Students extends React.Component<any, any>{
     }
 
     render() {
-        const studentsData = this.state.students.map((student:any) => {
-            return (
-                <tr>
-                <td>{student.id}</td>
-                <td>{student.name}</td>
-                <td>{student.branch.name}</td>
-                <td>{student.subjects.join(",")}</td>
-                </tr>       
-            )
-        })
+        // const studentsData = this.state.students.map((student:any) => {
+        //     return (
+        //         <tr>
+        //         <td>{student.id}</td>
+        //         <td>{student.name}</td>
+        //         <td>{student.branch.name}</td>
+        //         <td>{student.subjects.join(",")}</td>
+        //         </tr>       
+        //     )
+        // })
         return (
             <div>
                 <h1>Student List</h1>
-                <Table striped bordered hover>
+                <Table>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -44,7 +47,7 @@ class Students extends React.Component<any, any>{
                         </tr>
                     </thead>
                     <tbody>
-                       {studentsData}
+                       {/* {studentsData} */}
                     </tbody>
                 </Table>
             </div>

@@ -16,7 +16,6 @@ import java.util.HashMap;
 @Slf4j
 public class GlobalExceptionHandler {
 
-
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity handleResourceNotFoundException(ResourceNotFoundException ex){
         log.error("Resource not found ", ex);
@@ -49,6 +48,5 @@ public class GlobalExceptionHandler {
         errorDetails.setDevErrorMessage(getStackTraceAsString(ex));
         return new ResponseEntity(errorDetails, HttpStatus.BAD_REQUEST);
     }
-
 
 }

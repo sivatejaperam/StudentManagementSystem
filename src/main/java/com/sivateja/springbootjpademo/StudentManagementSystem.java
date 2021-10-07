@@ -11,7 +11,8 @@ public class StudentManagementSystem {
 	}
 
 	/*@Bean
-	CommandLineRunner commandLineRunner(BranchRepo repo){
+	CommandLineRunner commandLineRunner(B
+	ranchRepo repo){
 		return args -> {
 			repo.save(new Branch(null, "E.C.E", LocalDate.now(), LocalDate.of(2021,9,1), null));
 		};
